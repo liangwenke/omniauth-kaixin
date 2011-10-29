@@ -44,6 +44,12 @@ module OmniAuth
         { :raw_info => raw_info }
       end
       
+      credentials do
+        prune!({
+          'expires' => access_token.expires?,
+          'expires_at' => access_token.expires_at
+        })
+      end
       
       def user_info
         {

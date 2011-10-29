@@ -19,7 +19,6 @@ module OmniAuth
 
       info do
         {
-          'nickname' => raw_info['login'],
           "uid" => raw_info["uid"], 
           "gender"=> (raw_info['gender'] == '0' ? 'Male' : 'Female'), 
           "image"=>raw_info['logo50'],

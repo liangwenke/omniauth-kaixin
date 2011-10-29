@@ -26,6 +26,10 @@ module OmniAuth
           :token_method  => :get
         }
       end
+      
+      def client
+        ::OAuth2::Client.new(options.client_id, options.client_secret, options.client_options.inject({}){|h,(k,v)| h[k.to_sym] = v; h})
+      end
 
       info do
         {

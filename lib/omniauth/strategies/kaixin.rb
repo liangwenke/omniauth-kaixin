@@ -15,12 +15,12 @@ module OmniAuth
         super
       end
 
-      uid { raw_info['id'] }
+      uid { raw_info['uid'] }
 
       info do
         {
           'nickname' => raw_info['login'],
-          "uid"=>raw_info['login'], 
+          "uid" => raw_info["uid"], 
           "gender"=> (raw_info['gender'] == '0' ? 'Male' : 'Female'), 
           "image"=>raw_info['logo50'],
           'name' => raw_info['name'],

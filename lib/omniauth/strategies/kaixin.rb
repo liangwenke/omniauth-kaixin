@@ -14,7 +14,7 @@ module OmniAuth
     # adapted from https://github.com/yzhang/omniauth/commit/eafc5ff8115bcc7d62c461d4774658979dd0a48e    
 
     class Kaixin < OmniAuth::Strategies::OAuth2
-      option :client_options = {
+      option :client_options, {
         :site          => 'https://api.kaixin001.com/',
         :authorize_url => '/oauth2/authorize',
         :token_url     => '/oauth2/access_token',

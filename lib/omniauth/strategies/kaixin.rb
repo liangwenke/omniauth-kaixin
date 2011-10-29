@@ -14,16 +14,17 @@ module OmniAuth
     # adapted from https://github.com/yzhang/omniauth/commit/eafc5ff8115bcc7d62c461d4774658979dd0a48e    
 
     class Kaixin < OmniAuth::Strategies::OAuth2
-      option :client_options, {
-        :site          => 'https://api.kaixin001.com/',
-        :authorize_url => '/oauth2/authorize',
-        :token_url     => '/oauth2/access_token',
-        :token_method  => :get
-      }
-
-      def consumer
-        consumer = ::OAuth::Consumer.new(options.consumer_key, options.consumer_secret, options.client_options)
-        consumer
+      option :name, 'kaixin'
+      option :sign_in, true
+      def initialize(*args)
+        super
+        # taken from https://github.com/intridea/omniauth/blob/0-3-stable/oa-oauth/lib/omniauth/strategies/oauth/tqq.rb#L15-24
+        options.client_options = {
+          :site          => 'https://api.kaixin001.com/',
+          :authorize_url => '/oauth2/authorize',
+          :token_url     => '/oauth2/access_token',
+          :token_method  => :get
+        }
       end
 
       info do

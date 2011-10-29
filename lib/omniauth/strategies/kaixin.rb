@@ -18,12 +18,13 @@ module OmniAuth
       info do
         {
           'nickname' => raw_info['login'],
-          'email' => raw_info['email'],
+          "uid"=>raw_info['login'], 
+          "gender"=> (raw_info['gender'] == '0' ? 'Male' : 'Female'), 
+          "image"=>raw_info['logo50']}
           'name' => raw_info['name'],
           'urls' => {
-            'GitHub' => "https://github.com/#{raw_info['login']}",
-            'Blog' => raw_info['blog'],
-          },
+            'Kaixin' => "http://www.kaixin001.com/"
+          }
         }
       end
 

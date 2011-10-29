@@ -13,30 +13,30 @@ module OmniAuth
         super
       end
 
-      uid { raw_info['uid'] }
+      uid { raw_info['id'] }
 
       info do
         {
-          :uid => raw_info['uid'],
-          :user_info => raw_info['data']['name'],
-          :location => raw_info['data']['location'],
-          :image => raw_info['data']['head'],
-          :description => raw_info['description'],
-          :extra => {
-            'raw_info' => raw_info
-          }
+          'nickname' => raw_info['login'],
+          'email' => raw_info['email'],
+          'name' => raw_info['name'],
+          'urls' => {
+            'GitHub' => "https://github.com/#{raw_info['login']}",
+            'Blog' => raw_info['blog'],
+          },
         }
       end
+
       def raw_info
         @raw_info ||= MultiJson.decode(access_token.get("/users/me.json?access_token=#{@access_token.token}").body)
+        puts @raw_info.inspect
+        @raw_info
       rescue ::Errno::ETIMEDOUT
         raise ::Timeout::Error
       end
     end
   end
 end
-
-OmniAuth.config.add_camelization 'github', 'GitHub'
 
 # require 'omniauth/strategies/oauth2'
 # 

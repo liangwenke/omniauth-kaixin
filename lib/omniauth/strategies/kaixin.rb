@@ -16,10 +16,8 @@ module OmniAuth
     class Kaixin < OmniAuth::Strategies::OAuth2
       def initialize(client_id, client_secrent)
         super
-        # taken from https://github.com/intridea/omniauth/blob/0-3-stable/oa-oauth/lib/omniauth/strategies/oauth/tqq.rb#L15-24
-        options = {}
-        options.client_id = client_id
-        options.client_id = client_secrent
+        
+        puts options.inspect 
         options.client_options = {
           :site          => 'https://api.kaixin001.com/',
           :authorize_url => '/oauth2/authorize',

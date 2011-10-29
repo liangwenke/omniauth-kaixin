@@ -22,7 +22,7 @@ module OmniAuth
           'nickname' => raw_info['login'],
           "uid"=>raw_info['login'], 
           "gender"=> (raw_info['gender'] == '0' ? 'Male' : 'Female'), 
-          "image"=>raw_info['logo50']},
+          "image"=>raw_info['logo50'],
           'name' => raw_info['name'],
           'urls' => {
             'Kaixin' => "http://www.kaixin001.com/"

@@ -14,8 +14,6 @@ module OmniAuth
     # adapted from https://github.com/yzhang/omniauth/commit/eafc5ff8115bcc7d62c461d4774658979dd0a48e    
 
     class Kaixin < OmniAuth::Strategies::OAuth2
-      option :name, 'kaixin'
-      option :sign_in, true
       def initialize(*args)
         super
         # taken from https://github.com/intridea/omniauth/blob/0-3-stable/oa-oauth/lib/omniauth/strategies/oauth/tqq.rb#L15-24

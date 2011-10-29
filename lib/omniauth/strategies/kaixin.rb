@@ -1,3 +1,5 @@
+# lots of stuff taken from https://github.com/yzhang/omniauth/commit/eafc5ff8115bcc7d62c461d4774658979dd0a48e
+
 require 'omniauth-oauth2'
 
 module OmniAuth

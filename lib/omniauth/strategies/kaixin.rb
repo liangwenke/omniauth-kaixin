@@ -23,7 +23,7 @@ module OmniAuth
           :image => raw_info['data']['head'],
           :description => raw_info['description'],
           :extra => {
-            'user_hash' => user_data
+            'raw_info' => raw_info
           }
         }
       end
